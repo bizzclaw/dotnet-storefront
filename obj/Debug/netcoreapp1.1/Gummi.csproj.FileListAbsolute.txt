@@ -1,0 +1,11 @@
+C:\Users\bizzc\Desktop\gummi\Gummi\bin\Debug\netcoreapp1.1\Gummi.deps.json
+C:\Users\bizzc\Desktop\gummi\Gummi\bin\Debug\netcoreapp1.1\Gummi.runtimeconfig.json
+C:\Users\bizzc\Desktop\gummi\Gummi\bin\Debug\netcoreapp1.1\Gummi.runtimeconfig.dev.json
+C:\Users\bizzc\Desktop\gummi\Gummi\bin\Debug\netcoreapp1.1\Gummi.dll
+C:\Users\bizzc\Desktop\gummi\Gummi\bin\Debug\netcoreapp1.1\Gummi.pdb
+C:\Users\bizzc\Desktop\gummi\Gummi\obj\Debug\netcoreapp1.1\Gummi.csprojResolveAssemblyReference.cache
+C:\Users\bizzc\Desktop\gummi\Gummi\obj\Debug\netcoreapp1.1\Gummi.csproj.CoreCompileInputs.cache
+C:\Users\bizzc\Desktop\gummi\Gummi\obj\Debug\netcoreapp1.1\Gummi.AssemblyInfoInputs.cache
+C:\Users\bizzc\Desktop\gummi\Gummi\obj\Debug\netcoreapp1.1\Gummi.AssemblyInfo.cs
+C:\Users\bizzc\Desktop\gummi\Gummi\obj\Debug\netcoreapp1.1\Gummi.dll
+C:\Users\bizzc\Desktop\gummi\Gummi\obj\Debug\netcoreapp1.1\Gummi.pdb
