@@ -9,13 +9,11 @@ namespace Gummi.Models
         {
         }
 
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<Experience> Experiences { get; set; }
-        public DbSet<Person> People { get; set; }
+        public DbSet<Product> Product { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySql(@"Server=localhost;Port=8889;database=Gummi;uid=root;pwd=root;");
+            options.UseMySql(@"Server=localhost;Port=3306;database=Gummi;uid=root;pwd=root;");
         }
 
         public GummiDbContext(DbContextOptions<GummiDbContext> options) : base(options)

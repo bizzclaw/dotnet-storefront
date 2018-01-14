@@ -9893,15 +9893,12 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\bizzc\\Desktop\\gummi\\Gummi\\Gummi.csproj",
+      "projectUniqueName": "C:\\Users\\bizzc\\Desktop\\gummi\\gummi\\Gummi.csproj",
       "projectName": "Gummi",
-      "projectPath": "C:\\Users\\bizzc\\Desktop\\gummi\\Gummi\\Gummi.csproj",
+      "projectPath": "C:\\Users\\bizzc\\Desktop\\gummi\\gummi\\Gummi.csproj",
       "packagesPath": "C:\\Users\\bizzc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bizzc\\Desktop\\gummi\\Gummi\\obj\\",
+      "outputPath": "C:\\Users\\bizzc\\Desktop\\gummi\\gummi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"

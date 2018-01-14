@@ -5,15 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Experiences\**" />
+    <Compile Remove="Views\Locations\**" />
+    <Compile Remove="Views\People\**" />
+    <Content Remove="Views\Experiences\**" />
+    <Content Remove="Views\Locations\**" />
+    <Content Remove="Views\People\**" />
+    <EmbeddedResource Remove="Views\Experiences\**" />
+    <EmbeddedResource Remove="Views\Locations\**" />
+    <EmbeddedResource Remove="Views\People\**" />
+    <None Remove="Views\Experiences\**" />
+    <None Remove="Views\Locations\**" />
+    <None Remove="Views\People\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
     <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Locations\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Views\Experiences\" />
-    <Folder Include="Views\People\" />
   </ItemGroup>
 
   <ItemGroup>
