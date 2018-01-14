@@ -14,6 +14,12 @@ namespace Gummi.Controllers
 
         private GummiDbContext db = new GummiDbContext();
 
+        public Product GetProductById(int id)
+        {
+            return db.Products.FirstOrDefault(Products => Products.Id == id);
+        }
+
+
         public IActionResult Index()
         {
             return View(db.Products.ToList());
@@ -21,12 +27,18 @@ namespace Gummi.Controllers
 
         public IActionResult Details(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.Id == id);
+            var thisProduct = GetProductById(id);
             return View(thisProduct);
         }
 
         public IActionResult Create()
         {
+            return View();
+        }
+
+        public IActionResult CreateReview(int id)
+        {
+            Product thisProduct = GetProductById(id);
             return View();
         }
 
@@ -40,7 +52,7 @@ namespace Gummi.Controllers
 
         public IActionResult Edit(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.Id == id);
+            var thisProduct = GetProductById(id);
             return View(thisProduct);
 
         }
@@ -55,14 +67,14 @@ namespace Gummi.Controllers
 
         public IActionResult Delete(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.Id == id);
+            var thisProduct = GetProductById(id);
             return View(thisProduct);
         }
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var thisProduct = db.Products.FirstOrDefault(Products => Products.Id == id);
+            var thisProduct = GetProductById(id);
             db.Products.Remove(thisProduct);
             db.SaveChanges();
             return RedirectToAction("Index");

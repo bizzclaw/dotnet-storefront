@@ -1,0 +1,20 @@
+﻿@model Gummi.Models.Review
+@{
+    ViewData["Title"] = "New Product";
+    Layout = "_Layout";
+}
+<h2>Submit Review</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Text)
+        @Html.TextBoxFor(model => model.Text)
+        <input type="submit" value="Submit Product" />
+    </p>
+}
+p>@Html.ActionLink("Return to Products", "Index")</p>
