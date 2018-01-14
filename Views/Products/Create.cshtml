@@ -1,0 +1,29 @@
+﻿@model Gummi.Models.Product
+
+@{
+    ViewData["Title"] = "New Product";
+    Layout = "_Layout";
+}
+
+<h2> Enter Product Information </h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+	    @Html.LabelFor(model => model.Name)
+	    @Html.TextBoxFor(model => model.Name)
+	</p>
+
+    <p>
+	    @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description)
+    </p>
+
+    <p>
+	    Price (In USD Cents)
+        @Html.EditorFor(model => model.Price)
+    </p>
+
+    <input type="submit" value="Submit Product"/>
+}
+<p>@Html.ActionLink("Return to Products", "Index")</p>
