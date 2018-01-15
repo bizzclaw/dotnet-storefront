@@ -3,9 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>@ViewData["Title"]</title>
-        <link rel="stylesheet" href="/css/master.css">
+        <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/master.css">
     </head>
     <body>
+
+        <div class="jumbotron" id="header">
+            <div class="text-center">
+                <h1>@Html.ActionLink("Gummi Bear Kingdom", "index", "Home")</h1>
+            </div>
+        </div>
+
         @RenderBody()
     </body>
 </html>

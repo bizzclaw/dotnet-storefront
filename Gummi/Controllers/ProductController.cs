@@ -38,7 +38,7 @@ namespace Gummi.Controllers
 
         public IActionResult CreateReview(int id)
         {
-            Product thisProduct = GetProductById(id);
+            ViewBag.Product = GetProductById(id);
             return View();
         }
 

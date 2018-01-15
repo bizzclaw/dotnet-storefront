@@ -1,6 +1,6 @@
 ﻿@model Gummi.Models.Product
 @{
-    ViewData["Title"] = "TravelBlog - Detail";
+    ViewData["Title"] = Model.Name;
     Layout = "_Layout";
 }
 
@@ -11,4 +11,8 @@
 <p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
 <p>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</p>
 
+<p>@Html.ActionLink("Create Review", "CreateReveiw", new { id = Model.Id })</p>
+
 <p>@Html.ActionLink("Edit", "edit", new { id = Model.Id}) | @Html.ActionLink("Back to Products", "Index")</p>
+
+<p>@Html.ActionLink("Delete", "delete", new { id = Model.Id })</p>
