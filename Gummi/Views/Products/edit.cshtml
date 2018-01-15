@@ -3,28 +3,31 @@
     ViewData["Title"] = "Edit Product";
     Layout = "_Layout";
 }
-<h2>Edit</h2>
-<hr />
-<h4>Edit this location: @Html.DisplayFor(model => model.Name)</h4>
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.Id)
+<div class="container">
+    <h2>Edit @Model.Name</h2>
+    <hr />
+    <h4>Edit this location: @Html.DisplayFor(model => model.Name)</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.Id)
 
-    <p>
-        @Html.LabelFor(model => model.Name)
-        @Html.EditorFor(model => model.Name)
-    </p>
+        <p>
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+        </p>
 
-    <p>
-        @Html.LabelFor(model => model.Description)
-        @Html.EditorFor(model => model.Description)
-    </p>
+        <p>
+            @Html.LabelFor(model => model.Description)
+            @Html.EditorFor(model => model.Description)
+        </p>
 
-    <p>
-        Price(In USD Cents)
-        @Html.EditorFor(model => model.Price)
-    </p>
+        <p>
+            Price(In USD Cents)
+            @Html.EditorFor(model => model.Price)
+        </p>
 
-    <input type="submit" value="Submit Changes" />
-}
-<p>@Html.ActionLink("Cancel", "details", new { id = Model.Id })</p>
+        <button class="btn btn-success" type="submit">Submit</button>
+    }
+    <hr />
+    <button class="btn btn-warning" onclick="location.href='@Url.Action("Index")'">Cancel</button>
+</div>
