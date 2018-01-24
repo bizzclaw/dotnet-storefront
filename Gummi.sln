@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBlog", "TravelBlog\TravelBlog.csproj", "{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gummi", "Gummi\Gummi.csproj", "{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gummi.Tests", "Gummi.Tests\Gummi.Tests.csproj", "{AA66B687-E108-4767-A96A-9A0C914E94DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +15,9 @@ Global
 		{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA66B687-E108-4767-A96A-9A0C914E94DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA66B687-E108-4767-A96A-9A0C914E94DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA66B687-E108-4767-A96A-9A0C914E94DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA66B687-E108-4767-A96A-9A0C914E94DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
