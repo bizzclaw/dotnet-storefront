@@ -36,6 +36,11 @@ namespace Gummi.Controllers
             return View();
         }
 
+        public IActionResult CreateReview()
+        {
+            return View();
+        }
+
         public IActionResult CreateReview(int id)
         {
             ViewBag.Product = GetProductById(id);
@@ -43,9 +48,19 @@ namespace Gummi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product Product)
+        public IActionResult Create(Product product)
         {
-            db.Products.Add(Product);
+            db.Products.Add(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult CreateReview(Review review)
+        {
+            review.Rating = Math.Min(10, Math.Max(0, review.Rating)); // Serverside validation
+
+            db.Reviews.Add(review);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

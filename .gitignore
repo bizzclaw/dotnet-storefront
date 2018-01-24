@@ -39,3 +39,6 @@ desktop.ini
 
 # dotCover
 *.dotCover
+
+db.lock
+.vs/

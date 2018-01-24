@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Gummi.Models
 {
@@ -17,6 +19,22 @@ namespace Gummi.Models
         {
             var floatPrice = (float) Price;
             return (floatPrice * 0.01).ToString() + currency;
+        }
+
+        public virtual double GetAverageRating(string currency)
+        {
+            GummiDbContext db = new GummiDbContext();
+            var reviews = from r in db.Reviews
+                          select r.Rating;
+            List<int> allRatings = reviews.ToList();
+
+            int total = 0;
+            for (int i = 0; i < allRatings.Count(); i++)
+            {
+                total += allRatings[i];
+            }
+            double average = total / reviews.Count();
+            return average;
         }
     }
 }
