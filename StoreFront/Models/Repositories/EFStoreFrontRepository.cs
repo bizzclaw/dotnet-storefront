@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace StoreFront.Models {
-    public class EFProductRepository : IProductRepository
+    public class EFStoreFrontRepository : IStoreFrontRepository
     {
         StoreDbContext db = new StoreDbContext();
 
@@ -29,6 +29,29 @@ namespace StoreFront.Models {
         public void Remove(Product Product)
         {
             db.Products.Remove(Product);
+            db.SaveChanges();
+        }
+
+        public IQueryable<Review> Reviews
+        { get { return db.Reviews; } }
+
+        public Review Save(Review Review)
+        {
+            db.Reviews.Add(Review);
+            db.SaveChanges();
+            return Review;
+        }
+
+        public Review Edit(Review Review)
+        {
+            db.Entry(Review).State = EntityState.Modified;
+            db.SaveChanges();
+            return Review;
+        }
+
+        public void Remove(Review Review)
+        {
+            db.Reviews.Remove(Review);
             db.SaveChanges();
         }
     }

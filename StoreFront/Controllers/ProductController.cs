@@ -12,22 +12,23 @@ namespace StoreFront.Controllers
     public class ProductsController : Controller
     {
 
-        private IProductRepository productRepo;
+        private IStoreFrontRepository storeFrontRepo;
 
-        public ProductsController(IProductRepository repo = null)
+
+        public ProductsController(IStoreFrontRepository repo = null)
         {
-            this.productRepo = repo ?? new EFProductRepository();
+            this.storeFrontRepo = repo ?? new EFStoreFrontRepository();
         }
 
         public Product GetProductById(int id)
         {
-            return productRepo.Products.FirstOrDefault(Products => Products.Id == id);
+            return storeFrontRepo.Products.FirstOrDefault(Products => Products.Id == id);
         }
 
 
         public IActionResult Index()
         {
-            return View(productRepo.Products.ToList());
+            return View(storeFrontRepo.Products.ToList());
         }
 
         public IActionResult Details(int id)
@@ -55,7 +56,7 @@ namespace StoreFront.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            productRepo.Save(product);
+            storeFrontRepo.Save(product);
             return RedirectToAction("Index");
         }
 
@@ -79,7 +80,7 @@ namespace StoreFront.Controllers
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            productRepo.Edit(product);
+            storeFrontRepo.Edit(product);
             return RedirectToAction("Index");
         }
 
@@ -93,7 +94,7 @@ namespace StoreFront.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var thisProduct = GetProductById(id);
-            productRepo.Remove(thisProduct);
+            storeFrontRepo.Remove(thisProduct);
             return RedirectToAction("Index");
         }
     }

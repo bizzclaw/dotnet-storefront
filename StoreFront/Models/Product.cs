@@ -27,13 +27,18 @@ namespace StoreFront.Models
             var reviews = from r in db.Reviews
                           select r.Rating;
             List<int> allRatings = reviews.ToList();
+            int reviewCount = allRatings.Count();
+            if (reviewCount < 1)
+            {
+                return -1.0;
+            }
 
             int total = 0;
-            for (int i = 0; i < allRatings.Count(); i++)
+            for (int i = 0; i < reviewCount; i++)
             {
                 total += allRatings[i];
             }
-            double average = total / reviews.Count();
+            double average = total / reviewCount;
             return average;
         }
     }
