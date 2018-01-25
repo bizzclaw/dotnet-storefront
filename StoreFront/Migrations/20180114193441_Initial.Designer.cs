@@ -7,7 +7,7 @@ using StoreFront.Models;
 
 namespace StoreFront.Migrations
 {
-    [DbContext(typeof(GummiDbContext))]
+    [DbContext(typeof(StoreDbContext))]
     [Migration("20180114193441_Initial")]
     partial class Initial
     {

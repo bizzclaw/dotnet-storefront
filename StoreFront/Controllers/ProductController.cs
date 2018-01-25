@@ -12,17 +12,22 @@ namespace StoreFront.Controllers
     public class ProductsController : Controller
     {
 
-        private GummiDbContext db = new GummiDbContext();
+        private IProductRepository productRepo;
+
+        public ProductsController(IProductRepository repo = null)
+        {
+            this.productRepo = repo ?? new EFProductRepository();
+        }
 
         public Product GetProductById(int id)
         {
-            return db.Products.FirstOrDefault(Products => Products.Id == id);
+            return productRepo.Products.FirstOrDefault(Products => Products.Id == id);
         }
 
 
         public IActionResult Index()
         {
-            return View(db.Products.ToList());
+            return View(productRepo.Products.ToList());
         }
 
         public IActionResult Details(int id)
@@ -50,8 +55,7 @@ namespace StoreFront.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            db.Products.Add(product);
-            db.SaveChanges();
+            productRepo.Save(product);
             return RedirectToAction("Index");
         }
 
@@ -60,8 +64,8 @@ namespace StoreFront.Controllers
         {
             review.Rating = Math.Min(10, Math.Max(0, review.Rating)); // Serverside validation
 
-            db.Reviews.Add(review);
-            db.SaveChanges();
+           // db.Reviews.Add(review);
+           // db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -73,10 +77,9 @@ namespace StoreFront.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Product Product)
+        public IActionResult Edit(Product product)
         {
-            db.Entry(Product).State = EntityState.Modified;
-            db.SaveChanges();
+            productRepo.Edit(product);
             return RedirectToAction("Index");
         }
 
@@ -90,8 +93,7 @@ namespace StoreFront.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var thisProduct = GetProductById(id);
-            db.Products.Remove(thisProduct);
-            db.SaveChanges();
+            productRepo.Remove(thisProduct);
             return RedirectToAction("Index");
         }
     }

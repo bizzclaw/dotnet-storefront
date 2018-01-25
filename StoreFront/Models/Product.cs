@@ -23,7 +23,7 @@ namespace StoreFront.Models
 
         public virtual double GetAverageRating(string currency)
         {
-            GummiDbContext db = new GummiDbContext();
+            StoreDbContext db = new StoreDbContext();
             var reviews = from r in db.Reviews
                           select r.Rating;
             List<int> allRatings = reviews.ToList();

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace StoreFront.Models
 {
-    public class GummiDbContext : DbContext
+    public class StoreDbContext : DbContext
     {
-        public GummiDbContext()
+        public StoreDbContext()
         {
         }
 
@@ -17,7 +17,7 @@ namespace StoreFront.Models
             options.UseMySql(@"Server=localhost;Port=8889;database=StoreFront;uid=root;pwd=root;");
         }
 
-        public GummiDbContext(DbContextOptions<GummiDbContext> options) : base(options)
+        public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
         }
 

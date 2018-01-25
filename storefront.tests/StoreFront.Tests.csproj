@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Gummi\Gummi.csproj" />
+    <ProjectReference Include="..\StoreFront\StoreFront.csproj" />
   </ItemGroup>
 
 </Project>

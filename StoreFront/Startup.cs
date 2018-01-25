@@ -25,7 +25,7 @@ namespace StoreFront
 		{
             services.AddMvc();
 			services.AddEntityFramework()
-				.AddDbContext<GummiDbContext>(options =>
+				.AddDbContext<StoreDbContext>(options =>
 					options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 		}
 
