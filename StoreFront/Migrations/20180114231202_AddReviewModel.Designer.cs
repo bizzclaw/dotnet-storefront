@@ -3,19 +3,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Gummi.Models;
+using StoreFront.Models;
 
-namespace Gummi.Migrations
+namespace StoreFront.Migrations
 {
     [DbContext(typeof(GummiDbContext))]
-    partial class GummiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180114231202_AddReviewModel")]
+    partial class AddReviewModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
 
-            modelBuilder.Entity("Gummi.Models.Product", b =>
+            modelBuilder.Entity("StoreFront.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -31,7 +32,7 @@ namespace Gummi.Migrations
                     b.ToTable("products");
                 });
 
-            modelBuilder.Entity("Gummi.Models.Review", b =>
+            modelBuilder.Entity("StoreFront.Models.Review", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

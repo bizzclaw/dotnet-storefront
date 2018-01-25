@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Gummi.Migrations
+namespace StoreFront.Migrations
 {
     public partial class AddReviewModel : Migration
     {

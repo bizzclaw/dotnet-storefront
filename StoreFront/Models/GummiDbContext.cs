@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gummi.Models
+namespace StoreFront.Models
 {
     public class GummiDbContext : DbContext
     {
@@ -14,7 +14,7 @@ namespace Gummi.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseMySql(@"Server=localhost;Port=8889;database=Gummi;uid=root;pwd=root;");
+            options.UseMySql(@"Server=localhost;Port=8889;database=StoreFront;uid=root;pwd=root;");
         }
 
         public GummiDbContext(DbContextOptions<GummiDbContext> options) : base(options)

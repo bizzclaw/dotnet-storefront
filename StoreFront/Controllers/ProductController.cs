@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Gummi.Models;
+using StoreFront.Models;
 
-namespace Gummi.Controllers
+namespace StoreFront.Controllers
 {
     public class ProductsController : Controller
     {

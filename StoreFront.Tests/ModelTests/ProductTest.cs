@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Gummi.Models;
+using StoreFront.Models;
 
-namespace Gummi.Tests
+namespace StoreFront.Tests
 {
     [TestClass]
     public class ProductTests

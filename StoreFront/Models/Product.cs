@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace Gummi.Models
+namespace StoreFront.Models
 {
     [Table("products")]
     public class Product

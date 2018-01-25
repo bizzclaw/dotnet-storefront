@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gummi", "Gummi\Gummi.csproj", "{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront", "StoreFront\StoreFront.csproj", "{7D5CF610-F5D9-4CAA-AF7A-597E1F0F6F15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gummi.Tests", "Gummi.Tests\Gummi.Tests.csproj", "{AA66B687-E108-4767-A96A-9A0C914E94DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.Tests", "StoreFront.Tests\StoreFront.Tests.csproj", "{AA66B687-E108-4767-A96A-9A0C914E94DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

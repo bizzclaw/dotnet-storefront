@@ -3,51 +3,33 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Gummi.Models;
+using StoreFront.Models;
 
-namespace Gummi.Migrations
+namespace StoreFront.Migrations
 {
     [DbContext(typeof(GummiDbContext))]
-    [Migration("20180114231202_AddReviewModel")]
-    partial class AddReviewModel
+    [Migration("20180114193441_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
 
-            modelBuilder.Entity("Gummi.Models.Product", b =>
+            modelBuilder.Entity("StoreFront.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Cost");
 
                     b.Property<string>("Description");
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Price");
-
                     b.HasKey("Id");
 
                     b.ToTable("products");
-                });
-
-            modelBuilder.Entity("Gummi.Models.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ProductId");
-
-                    b.Property<int>("Rating");
-
-                    b.Property<string>("Text");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("reviews");
                 });
         }
     }

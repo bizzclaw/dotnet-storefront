@@ -6,10 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
-using Gummi.Models;
+using StoreFront.Models;
 
 
-namespace Gummi
+namespace StoreFront
 {
 	public class Startup
 	{
