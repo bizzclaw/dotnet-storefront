@@ -8,9 +8,10 @@ using StoreFront.Models;
 namespace StoreFront.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    partial class StoreFrontDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180128230523_AddImageToProduct")]
+    partial class AddImageToProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -21,6 +22,8 @@ namespace StoreFront.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Image");
 
                     b.Property<string>("Name");
 
