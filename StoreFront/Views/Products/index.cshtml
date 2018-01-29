@@ -13,8 +13,12 @@
     {
         <div class="product panel panel-default">
             <div class="panel-heading">
+                @{
+                    double rating = product.GetAverageRating();
+                    string ratingString = (rating >= 0) ? rating.ToString() : "No Reviews";
+                }
                 <h2>@Html.ActionLink(product.Name, "details", new { id = product.Id })</h2>
-                <h3>Average Rating: @product.GetAverageRating()</h3>
+                <h3>Average Rating: @ratingString</h3>
             </div>
             <div class="panel-body">
                 <h3>Price: @product.DisplayPrice("$")</h3>

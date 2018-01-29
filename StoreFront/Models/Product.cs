@@ -14,6 +14,7 @@ namespace StoreFront.Models
         public string Description { get; set; }
         public int Price { get; set; }
         public string Image { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
 
         //TODO: This should probably be something to redo later in Javascript (client-side) to support the users local regional currency.
         public virtual string DisplayPrice(string currency)
@@ -24,20 +25,15 @@ namespace StoreFront.Models
 
         public virtual double GetAverageRating()
         {
-            StoreDbContext db = new StoreDbContext();
-            var reviews = from r in db.Reviews
-                          select r.Rating;
-            List<int> allRatings = reviews.ToList();
-            int reviewCount = allRatings.Count();
+            int reviewCount = Reviews != null ? Reviews.Count() : 0;
             if (reviewCount < 1)
             {
                 return -1.0;
             }
 
             int total = 0;
-            for (int i = 0; i < reviewCount; i++)
-            {
-                total += allRatings[i];
+            foreach (Review review in Reviews) {
+                total += review.Rating;
             }
             double average = total / reviewCount;
             return average;

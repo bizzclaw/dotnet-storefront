@@ -8,9 +8,10 @@ using StoreFront.Models;
 namespace StoreFront.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    partial class StoreFrontDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180129164827_LinkReviewToProductModel")]
+    partial class LinkReviewToProductModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");

@@ -22,13 +22,14 @@ namespace StoreFront.Controllers
 
         public Product GetProductById(int id)
         {
-            return storeFrontRepo.Products.FirstOrDefault(Products => Products.Id == id);
+            
+            return storeFrontRepo.Products.Include(product => product.Reviews).FirstOrDefault(Products => Products.Id == id);
         }
 
 
         public IActionResult Index()
         {
-            return View(storeFrontRepo.Products.ToList());
+            return View(storeFrontRepo.Products.Include(p => p.Reviews).ToList());
         }
 
         public IActionResult Details(int id)
