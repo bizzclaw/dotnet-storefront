@@ -10,33 +10,35 @@ namespace StoreFront.Models
     [Table("reviews")]
     public class Review
     {
+        [NotMapped]
+        public static int TitleMaxCharacters = 40;
+        [NotMapped]
+        public static int TextMaxCharacters = 255;
+        [NotMapped]
+        public static int MaxRating = 10;
+
         private string _title;
         private string _text;
         private int _rating;
-        private int _maxStringLength = 255;
-
-        public string ClampString(string str, int clamp)
-        {
-            return str.Length > clamp ? str.Substring(0, clamp) : str;
-        }
 
         [Key]
         public int Id { get; set; }
         public int ProductId { get; set; }
-        public string Title {
+        public string Title
+        {
             get => _title;
-            set => _title = ClampString(_title, _maxStringLength);
+            set => _title = value.Length > TitleMaxCharacters ? value.Substring(0, TitleMaxCharacters) : value;
         }
 
         public string Text
         {
             get => _text;
-            set => _text = ClampString(_text, _maxStringLength);
+            set => _text = value.Length > TextMaxCharacters ? value.Substring(0, TextMaxCharacters) : value;
         }
 
         public int Rating {
             get => _rating;
-            set => _rating = Math.Min(10, Math.Max(0, value));
+            set => _rating = Math.Min(MaxRating, Math.Max(0, value));
         }
 
         public override bool Equals(object obj)

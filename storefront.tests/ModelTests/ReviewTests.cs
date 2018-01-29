@@ -13,19 +13,35 @@ namespace StoreFront.Tests
         [TestMethod]
         public void Equals_ReviewsHaveSameID_True()
         {
-            Review product1 = new Review { Id = 1 };
-            Review product2 = new Review { Id = 1 };
+            Review review1 = new Review { Id = 1 };
+            Review review2 = new Review { Id = 1 };
 
-            Assert.AreEqual(true, product1.Equals(product2));
+            Assert.AreEqual(true, review1.Equals(review2));
         }
 
         [TestMethod]
         public void Equals_ReviewsHaveDifferentID_False()
         {
-            Review product1 = new Review { Id = 1 };
-            Review product2 = new Review { Id = 2 };
+            Review review1 = new Review { Id = 1 };
+            Review review2 = new Review { Id = 2 };
 
-            Assert.AreEqual(false, product1.Equals(product2));
+            Assert.AreEqual(false, review1.Equals(review2));
+        }
+
+        [TestMethod]
+        public void Title_TitleClamped_TitleMaxCharacters()
+        {
+            Review review1 = new Review { Title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i" };
+
+            Assert.AreEqual(Review.TitleMaxCharacters, review1.Title.Length);
+        }
+
+        [TestMethod]
+        public void Text_TextClamped_TextMaxCharacters()
+        {
+            Review review1 = new Review { Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i" };
+
+            Assert.AreEqual(Review.TextMaxCharacters, review1.Text.Length);
         }
     }
 }
