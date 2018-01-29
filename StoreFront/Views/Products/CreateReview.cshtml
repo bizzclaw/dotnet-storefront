@@ -13,10 +13,10 @@
     @using (Html.BeginForm())
     {
 
-    <div class="form-group">
-        Title
-        @Html.TextBoxFor(model => model.Review.Title)
-    </div>
+        <div class="form-group">
+            Title
+            @Html.TextBoxFor(model => model.Review.Title)
+        </div>
 
         <div class="form-group">
             Body
@@ -26,6 +26,11 @@
         <div class="form-group">
             Rating
             @Html.EditorFor(model => model.Review.Rating)
+        </div>
+
+        <div class="form-group">
+            Set this to @Model.Product.Id
+            @Html.EditorFor(model => model.Review.ProductId)
         </div>
 
         <button class="btn btn-success" type="submit">Submit</button>

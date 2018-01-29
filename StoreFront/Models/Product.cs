@@ -22,7 +22,7 @@ namespace StoreFront.Models
             return (floatPrice * 0.01).ToString() + currency;
         }
 
-        public virtual double GetAverageRating(string currency)
+        public virtual double GetAverageRating()
         {
             StoreDbContext db = new StoreDbContext();
             var reviews = from r in db.Reviews

@@ -70,10 +70,8 @@ namespace StoreFront.Controllers
         public IActionResult CreateReview(CreateReviewModel reviewModel)
         {
             Review review = reviewModel.Review;
-            System.Diagnostics.Debug.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////////////");
-            System.Diagnostics.Debug.WriteLine(reviewModel.Product.Id);
             storeFrontRepo.Save(review);
-            return RedirectToAction("Details", "Product", new {id = reviewModel.Product.Id });
+            return RedirectToAction("details", "Products", new {id = reviewModel.Review.ProductId });
         }
 
         public IActionResult Edit(int id)
