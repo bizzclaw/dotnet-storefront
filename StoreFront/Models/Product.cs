@@ -16,6 +16,7 @@ namespace StoreFront.Models
         public string Image { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
 
+
         public override bool Equals(object obj)
         {
             Product compared = obj as Product;
@@ -26,7 +27,6 @@ namespace StoreFront.Models
         {
             return Id.GetHashCode();
         }
-
 
         //TODO: This should probably be something to redo later in Javascript (client-side) to support the users local regional currency.
         public virtual string DisplayPrice(string currency)
