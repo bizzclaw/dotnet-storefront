@@ -29,7 +29,7 @@ namespace StoreFront.Tests
         }
 
         [TestMethod]
-        public void GetAverateRating_CalculatesAverageRating_5()
+        public void GetAverateRating_CalculatesAverageRating_2()
         {
             Review[] reviews = {
                 new Review { Rating = 1},

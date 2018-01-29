@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace StoreFront.Tests
 {
     [TestClass]
-    public class RepoTests
+    public class EFProductRepositoryTests
     {
-        Mock<IStoreFrontRepository> mock = new Mock<IStoreFrontRepository>();
+        Mock<IProductRepository> mock = new Mock<IProductRepository>();
 
         private void DbSetup()
         {
@@ -20,13 +20,6 @@ namespace StoreFront.Tests
                 new Product {Id = 1, Name = "Fallout 3", Description = "Okay I guess", Price = 1499 },
                 new Product {Id = 2, Name = "Fallout New Vegas", Description = "Best game in the series", Price = 1499 },
                 new Product {Id = 3, Name = "Fallout 3", Description = "Worst \"Fallout\" game, best \"Shooter\"", Price = 1499 },
-            }.AsQueryable());
-
-            mock.Setup(m => m.Reviews).Returns(new Review[]
-            {
-                new Review {Id = 1, ProductId = 1, Rating = 7, Title = "Amazing RPG", Text = "I really liked this game, I just wish it was more true to the original"},
-                new Review {Id = 1, ProductId = 1, Rating = 5, Title = "New Vegas is Better", Text = "New vegas has everything this has, but more and better. Get that one instead."}
-
             }.AsQueryable());
         }
 

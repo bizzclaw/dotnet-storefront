@@ -12,24 +12,25 @@ namespace StoreFront.Controllers
     public class ProductsController : Controller
     {
 
-        private IStoreFrontRepository storeFrontRepo;
+        private IProductRepository _productRepo;
+        private IReviewRepository _reviewRepo;
 
-
-        public ProductsController(IStoreFrontRepository repo = null)
+        public ProductsController(IProductRepository _productRepo = null, IReviewRepository _reviewRepo = null)
         {
-            this.storeFrontRepo = repo ?? new EFStoreFrontRepository();
+            this._productRepo = _productRepo ?? new EFProductRepository();
+            this._reviewRepo = _reviewRepo ?? new EFReveiwRepository();
         }
 
         public Product GetProductById(int id)
         {
             
-            return storeFrontRepo.Products.Include(product => product.Reviews).FirstOrDefault(Products => Products.Id == id);
+            return _productRepo.Products.Include(product => product.Reviews).FirstOrDefault(Products => Products.Id == id);
         }
 
 
         public IActionResult Index()
         {
-            return View(storeFrontRepo.Products.Include(p => p.Reviews).ToList());
+            return View(_productRepo.Products.Include(p => p.Reviews).ToList());
         }
 
         public IActionResult Details(int id)
@@ -63,7 +64,7 @@ namespace StoreFront.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            storeFrontRepo.Save(product);
+            _productRepo.Save(product);
             return RedirectToAction("Index");
         }
 
@@ -71,7 +72,7 @@ namespace StoreFront.Controllers
         public IActionResult CreateReview(CreateReviewModel reviewModel)
         {
             Review review = reviewModel.Review;
-            storeFrontRepo.Save(review);
+            _reviewRepo.Save(review);
             return RedirectToAction("details", "Products", new {id = reviewModel.Review.ProductId });
         }
 
@@ -85,7 +86,7 @@ namespace StoreFront.Controllers
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            storeFrontRepo.Edit(product);
+            _productRepo.Edit(product);
             return RedirectToAction("Index");
         }
 
@@ -99,7 +100,7 @@ namespace StoreFront.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var thisProduct = GetProductById(id);
-            storeFrontRepo.Remove(thisProduct);
+            _productRepo.Remove(thisProduct);
             return RedirectToAction("Index");
         }
     }

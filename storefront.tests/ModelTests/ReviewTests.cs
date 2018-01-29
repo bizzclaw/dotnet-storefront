@@ -45,7 +45,7 @@ namespace StoreFront.Tests
         }
 
         [TestMethod]
-        public void Rating_RatingFloored_RatingMac()
+        public void Rating_RatingFloored_RatingMax()
         {
             Review review1 = new Review { Rating = Review.RatingMax * 2 };
 

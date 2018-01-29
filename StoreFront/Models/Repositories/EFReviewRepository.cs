@@ -6,39 +6,9 @@ using System.Threading.Tasks;
 
 namespace StoreFront.Models
 {
-    public class EFStoreFrontRepository : IStoreFrontRepository
+    public class EFReveiwRepository : IReviewRepository
     {
         StoreDbContext db = new StoreDbContext();
-
-        public IQueryable<Product> Products
-        { get { return db.Products; } }
-
-        public Product Save(Product Product)
-        {
-            db.Products.Add(Product);
-            db.SaveChanges();
-            return Product;
-        }
-
-        public Product Edit(Product Product)
-        {
-            db.Entry(Product).State = EntityState.Modified;
-            db.SaveChanges();
-            return Product;
-        }
-
-        public void Remove(Product Product)
-        {
-            db.Products.Remove(Product);
-            db.SaveChanges();
-        }
-
-        
-        public void DeleteAllProducts()
-        {
-            db.Database.ExecuteSqlCommand($"DELETE FROM {Product.DbTable}");
-        }
-
 
         public IQueryable<Review> Reviews
         { get { return db.Reviews; } }
@@ -63,7 +33,7 @@ namespace StoreFront.Models
             db.SaveChanges();
         }
 
-        public void DeleteAllReviews()
+        public void DeleteAll()
         {
             db.Database.ExecuteSqlCommand($"DELETE FROM {Review.DbTable}");
         }
