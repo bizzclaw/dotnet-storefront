@@ -7,15 +7,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StoreFront.Models
 {
-    [Table("reviews")]
+    [Table(DbTable)]
     public class Review
     {
         [NotMapped]
-        public static int TitleMaxCharacters = 40;
+        public const string DbTable = "reviews";
         [NotMapped]
-        public static int TextMaxCharacters = 255;
+        public const int TitleMaxCharacters = 40;
         [NotMapped]
-        public static int RatingMax = 5;
+        public const int TextMaxCharacters = 255;
+        [NotMapped]
+        public const int RatingMax = 5;
 
         private string _title;
         private string _text;

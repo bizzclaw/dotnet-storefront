@@ -6,9 +6,12 @@ using System.Linq;
 
 namespace StoreFront.Models
 {
-    [Table("products")]
+    [Table(DbTable)]
     public class Product
     {
+        [NotMapped]
+        public const string DbTable = "products";
+
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }

@@ -33,6 +33,13 @@ namespace StoreFront.Models
             db.SaveChanges();
         }
 
+        
+        public void DeleteAllProducts()
+        {
+            db.Database.ExecuteSqlCommand($"DELETE FROM {Product.DbTable}");
+        }
+
+
         public IQueryable<Review> Reviews
         { get { return db.Reviews; } }
 
@@ -54,6 +61,11 @@ namespace StoreFront.Models
         {
             db.Reviews.Remove(Review);
             db.SaveChanges();
+        }
+
+        public void DeleteAllReviews()
+        {
+            db.Database.ExecuteSqlCommand($"DELETE FROM {Review.DbTable}");
         }
     }
 }
