@@ -16,5 +16,16 @@ namespace StoreFront.Models
         public string Title { get; set; }
         public string Text { get; set; }
         public int Rating { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            Review compared = obj as Review;
+            return compared.Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }
