@@ -32,14 +32,13 @@ namespace StoreFront.Tests
         public void GetAverateRating_CalculatesAverageRating_5()
         {
             Review[] reviews = {
-                new Review { Rating = 6},
-                new Review { Rating = 4},
-                new Review { Rating = 5 }
+                new Review { Rating = 1},
+                new Review { Rating = 3 }
             };
 
             Product product = new Product { Reviews = reviews };
 
-            Assert.AreEqual(5, product.GetAverageRating());
+            Assert.AreEqual(2, product.GetAverageRating());
         }
     }
 }

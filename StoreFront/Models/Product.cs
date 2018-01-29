@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -45,6 +46,7 @@ namespace StoreFront.Models
 
             int total = 0;
             foreach (Review review in Reviews) {
+                Console.WriteLine(review.Rating);
                 total += review.Rating;
             }
             double average = total / reviewCount;

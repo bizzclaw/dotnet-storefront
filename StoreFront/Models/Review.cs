@@ -15,7 +15,7 @@ namespace StoreFront.Models
         [NotMapped]
         public static int TextMaxCharacters = 255;
         [NotMapped]
-        public static int MaxRating = 10;
+        public static int RatingMax = 5;
 
         private string _title;
         private string _text;
@@ -38,7 +38,7 @@ namespace StoreFront.Models
 
         public int Rating {
             get => _rating;
-            set => _rating = Math.Min(MaxRating, Math.Max(0, value));
+            set => _rating = Math.Min(RatingMax, Math.Max(0, value));
         }
 
         public override bool Equals(object obj)

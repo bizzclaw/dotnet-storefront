@@ -43,5 +43,21 @@ namespace StoreFront.Tests
 
             Assert.AreEqual(Review.TextMaxCharacters, review1.Text.Length);
         }
+
+        [TestMethod]
+        public void Rating_RatingFloored_RatingMac()
+        {
+            Review review1 = new Review { Rating = Review.RatingMax * 2 };
+
+            Assert.AreEqual(Review.RatingMax, review1.Rating);
+        }
+
+        [TestMethod]
+        public void Rating_RatingCeiled_0()
+        {
+            Review review1 = new Review { Rating = -1 };
+
+            Assert.AreEqual(0, review1.Rating);
+        }
     }
 }
