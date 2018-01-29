@@ -51,8 +51,11 @@ namespace StoreFront.Controllers
             }
             else
             {
-                ViewBag.Product = product;
-                return View();
+
+                CreateReviewModel reviewModel = new CreateReviewModel();
+                reviewModel.Product = product;
+                reviewModel.Review = new Review();
+                return View(reviewModel);
             }
         }
 
@@ -64,10 +67,13 @@ namespace StoreFront.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateReview(Review review)
+        public IActionResult CreateReview(CreateReviewModel reviewModel)
         {
+            Review review = reviewModel.Review;
+            System.Diagnostics.Debug.WriteLine("///////////////////////////////////////////////////////////////////////////////////////////////////////");
+            System.Diagnostics.Debug.WriteLine(reviewModel.Product.Id);
             storeFrontRepo.Save(review);
-            return RedirectToAction("Details", "Product", new {id = review.ProductId });
+            return RedirectToAction("Details", "Product", new {id = reviewModel.Product.Id });
         }
 
         public IActionResult Edit(int id)

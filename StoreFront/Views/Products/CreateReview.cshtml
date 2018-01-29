@@ -1,32 +1,35 @@
-﻿@model StoreFront.Models.Review
+﻿@model StoreFront.Models.CreateReviewModel
 
 @{
-    ViewData["Title"] = "Review " + ViewBag.Product.Name;
+    ViewData["Title"] = "Review " + Model.Product.Name;
     Layout = "_Layout";
 }
 
+@{Model.Review.ProductId = Model.Product.Id;}
+@Html.HiddenFor(model => model.Product.Id)
+
 <div class="container">
-    <h2>Review @ViewBag.Product.Name</h2>
+    <h2>Review @Model.Product.Name</h2>
     @using (Html.BeginForm())
     {
-        @Html.HiddenFor(item => item.ProductId, new { Value = ViewBag.Product.Id.ToString() })
-        <div class="form-group">
-            Title
-            @Html.TextBoxFor(model => model.Title)
-        </div>
+
+    <div class="form-group">
+        Title
+        @Html.TextBoxFor(model => model.Review.Title)
+    </div>
 
         <div class="form-group">
             Body
-            @Html.TextAreaFor(model => model.Text)
+            @Html.TextAreaFor(model => model.Review.Text)
         </div>
 
         <div class="form-group">
             Rating
-            @Html.EditorFor(model => model.Rating)
+            @Html.EditorFor(model => model.Review.Rating)
         </div>
 
         <button class="btn btn-success" type="submit">Submit</button>
     }
     <hr />
-    <button class="btn btn-warning" onclick="location.href='@Url.Action("details", "Products", new {id = ViewBag.Product.Id})'">Cancel</button>
+    <button class="btn btn-warning" onclick="location.href='@Url.Action("details", "Products", new {id = Model.Product.Id})'">Cancel</button>
 </div>
