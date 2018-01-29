@@ -1,20 +1,32 @@
 ﻿@model StoreFront.Models.Review
+
 @{
     ViewData["Title"] = "Review " + ViewBag.Product.Name;
     Layout = "_Layout";
 }
-<h2>Submit Review</h2>
 
-@using (Html.BeginForm())
-{
-    <p>
-        @Html.LabelFor(model => model.Title)
-        @Html.TextBoxFor(model => model.Title)
-    </p>
-    <p>
-        @Html.LabelFor(model => model.Text)
-        @Html.TextBoxFor(model => model.Text)
-        <input type="submit" value="Submit Product" />
-    </p>
-}
-<p>@Html.ActionLink("Return to Products", "Index")</p>
+<div class="container">
+    <h2>Review @ViewBag.Product.Name</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(item => item.ProductId, new { Value = ViewBag.Product.Id.ToString() })
+        <div class="form-group">
+            Title
+            @Html.TextBoxFor(model => model.Title)
+        </div>
+
+        <div class="form-group">
+            Body
+            @Html.TextAreaFor(model => model.Text)
+        </div>
+
+        <div class="form-group">
+            Rating
+            @Html.EditorFor(model => model.Rating)
+        </div>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    }
+    <hr />
+    <button class="btn btn-warning" onclick="location.href='@Url.Action("details", "Products", new {id = ViewBag.Product.Id})'">Cancel</button>
+</div>
