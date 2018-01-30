@@ -1,4 +1,5 @@
 ﻿@model StoreFront.Models.Product
+@using StoreFront.Models;
 @{
     ViewData["Title"] = Model.Name;
     Layout = "_Layout";
@@ -25,7 +26,7 @@
     </div>
     @foreach (var review in Model.Reviews){ 
         <div class="review">
-            <h3>@review.Rating / 10 - @review.Title</h3>
+            <h3>@review.Rating / @Review.RatingMax - @review.Title</h3>
             <p>@review.Text</p>
         </div>
     }
